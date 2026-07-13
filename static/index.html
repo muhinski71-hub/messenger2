@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мессенджер</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="login" class="login-screen">
+    <div class="login-card">
+      <h1>Мессенджер</h1>
+      <p class="subtitle">Общайся с друзьями голосом и текстом</p>
+      <input id="username" type="text" placeholder="Твоё имя" maxlength="32" autocomplete="off" />
+      <input id="room" type="text" placeholder="Название комнаты (например general)" maxlength="32" autocomplete="off" />
+      <button id="joinBtn">Войти</button>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="room-header">
+        <span class="hash">#</span><span id="roomName"></span>
+      </div>
+      <div class="members-title">Участники</div>
+      <ul id="members" class="members"></ul>
+      <div class="voice-controls">
+        <button id="voiceBtn" class="voice-btn">🎙 Войти в голосовой</button>
+        <button id="muteBtn" class="mute-btn hidden">🔇 Выкл. микрофон</button>
+        <button id="screenBtn" class="screen-btn hidden">🖥 Показать экран</button>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <div id="screens" class="screens hidden"></div>
+      <div id="messages" class="messages"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="fileInput" type="file" class="hidden" />
+        <button type="button" id="attachBtn" class="attach-btn" title="Прикрепить файл">📎</button>
+        <input id="messageInput" type="text" placeholder="Написать сообщение..." maxlength="2000" autocomplete="off" />
+        <button type="submit">Отправить</button>
+      </form>
+    </main>
+  </div>
+
+  <audio id="audioContainer"></audio>
+  <script src="/app.js"></script>
+</body>
+</html>
