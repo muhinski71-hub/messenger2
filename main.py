@@ -14,7 +14,7 @@ STATIC_DIR = BASE_DIR / "static"
 UPLOAD_DIR = BASE_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
-MAX_UPLOAD = 50 * 1024 * 1024  # 50 MB
+MAX_UPLOAD = 2 * 1024 * 1024 * 1024  # 2 GB
 
 
 class Peer:
@@ -86,7 +86,7 @@ async def upload(file: UploadFile = File(...)):
                     f.close()
                     dest.unlink(missing_ok=True)
                     return JSONResponse(
-                        {"error": "\u0424\u0430\u0439\u043b \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0431\u043e\u043b\u044c\u0448\u043e\u0439 (\u043c\u0430\u043a\u0441 50 \u041c\u0411)"},
+                        {"error": "\u0424\u0430\u0439\u043b \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0431\u043e\u043b\u044c\u0448\u043e\u0439 (\u043c\u0430\u043a\u0441 2 \u0413\u0411)"},
                         status_code=413,
                     )
                 f.write(chunk)
